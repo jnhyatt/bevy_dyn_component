@@ -1,0 +1,24 @@
+[package]
+name = "bevy_dyn_component"
+version = "0.1.0"
+authors = ["Josh Hyatt <joshua.n.hyatt@gmail.com>"]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Safe dynamic components API for Bevy"
+repository = "https://github.com/jnhyatt/bevy_dyn_component"
+keywords = ["gamedev", "ecs", "bevy"]
+
+[dependencies]
+bevy_app = "0.13"
+bevy_ecs = "0.13"
+bevy_ptr = "0.13"
+bevy_utils = "0.13"
+
+[dev-dependencies]
+bevy = "0.13.2"
+
+[[example]]
+name = "hello_world"
+
+[[example]]
+name = "relations_at_home"
