@@ -3,7 +3,8 @@ use std::{alloc::Layout, any::TypeId, ptr::NonNull};
 use bevy_app::App;
 use bevy_ecs::{
     component::{Component, ComponentDescriptor, ComponentId, ComponentStorage},
-    system::Resource,
+    entity::Entity,
+    system::{Command, EntityCommands, Resource},
     world::{EntityWorldMut, World},
 };
 use bevy_ptr::OwningPtr;
@@ -106,5 +107,31 @@ impl DynamicComponentsEntityExt for EntityWorldMut<'_> {
         // - above assertion guarantees `component_id` is from this [`World`]
         // - `data_ptr` will be valid for the rest of the function
         unsafe { self.insert_by_id(component_id, data_ptr) }
+    }
+}
+
+impl DynamicComponentsEntityExt for EntityCommands<'_> {
+    fn insert_dynamic<T: Component>(&mut self, component_id: ComponentId, data: T) -> &mut Self {
+        let entity = self.id();
+        self.commands().add(InsertDynamic {
+            entity,
+            component_id,
+            data,
+        });
+        self
+    }
+}
+
+pub struct InsertDynamic<T: Component> {
+    pub entity: Entity,
+    pub component_id: ComponentId,
+    pub data: T,
+}
+
+impl<T: Component> Command for InsertDynamic<T> {
+    fn apply(self, world: &mut World) {
+        world
+            .entity_mut(self.entity)
+            .insert_dynamic(self.component_id, self.data);
     }
 }
