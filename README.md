@@ -35,7 +35,7 @@ Demonstrates a simple way of using dynamic components as janky fragmenting relat
 
 | bevy | bevy_dyn_component |
 | ---- | ------------------ |
-| 0.13 | 0.1                |
+| 0.13 | 0.1-0.2            |
 
 ## Contribution
 
