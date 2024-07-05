@@ -38,5 +38,6 @@ fn hello_world(world: &mut World) {
 #[derive(Component)]
 struct Template;
 
+#[allow(dead_code)]
 #[derive(Component)]
 struct DataTemplate(String);
