@@ -29,7 +29,7 @@ Now that Bevy supports dynamic components, it's likely that this crate will soon
 Demonstrates basic usage of the library, how to create dynamic components with a layout matching an existing component, how to insert them into entities, and how to use them in the query builder API.
 
 ### [`relations_at_home`](examples/relations_at_home.rs)
-Demonstrates a simple way of using dynamic components as janky fragmenting relations. In my opinion, it doesn't work well as a general-purpose relations pattern, but for specific cases, it can be handy.
+Demonstrates a simple way of using dynamic components as janky fragmenting relations. It handles cleanup for despawned relation targets, so could be useful to make graph structures *if there aren't a lot of relation targets*. Importantly, there's not garbage collection for archetypes like there will be with a first-party relations feature, so archetype count will increase with additional relation targets. Finally, querying for related entities is a pain, and there's no support for querying "along" relationships, so the only benefit hierarchies are going to get is automatic cleanup.
 
 ## Bevy Version
 
