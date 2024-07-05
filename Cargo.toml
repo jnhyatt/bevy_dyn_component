@@ -9,13 +9,13 @@ repository = "https://github.com/jnhyatt/bevy_dyn_component"
 keywords = ["gamedev", "ecs", "bevy"]
 
 [dependencies]
-bevy_app = "0.13"
-bevy_ecs = "0.13"
-bevy_ptr = "0.13"
-bevy_utils = "0.13"
+bevy_app = "0.14"
+bevy_ecs = "0.14"
+bevy_ptr = "0.14"
+bevy_utils = "0.14"
 
 [dev-dependencies]
-bevy = "0.13.2"
+bevy = { version = "0.14", default-features = false }
 
 [[example]]
 name = "hello_world"

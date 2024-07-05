@@ -2,10 +2,10 @@ use std::{alloc::Layout, any::TypeId, ptr::NonNull};
 
 use bevy_app::App;
 use bevy_ecs::{
-    component::{Component, ComponentDescriptor, ComponentId, ComponentStorage},
+    component::{Component, ComponentDescriptor, ComponentId},
     entity::Entity,
-    system::{Command, EntityCommands, Resource},
-    world::{EntityWorldMut, World},
+    system::{EntityCommands, Resource},
+    world::{Command, EntityWorldMut, World},
 };
 use bevy_ptr::OwningPtr;
 use bevy_utils::HashMap;
@@ -50,7 +50,7 @@ impl DynamicComponentsWorldExt for World {
         let descriptor = unsafe {
             ComponentDescriptor::new_with_layout(
                 std::any::type_name::<T>(),
-                T::Storage::STORAGE_TYPE,
+                T::STORAGE_TYPE,
                 Layout::new::<T>(),
                 Some(drop::<T>),
             )
