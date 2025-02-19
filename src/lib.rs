@@ -55,7 +55,7 @@ impl DynamicComponentsWorldExt for World {
                 Some(drop::<T>),
             )
         };
-        let id = self.init_component_with_descriptor(descriptor);
+        let id = self.register_component_with_descriptor(descriptor);
 
         // SAFETY (not unsafe): this is a brand new id, it can't be in the map yet
         self.resource_mut::<DynamicComponentRegistry>()
@@ -113,7 +113,7 @@ impl DynamicComponentsEntityExt for EntityWorldMut<'_> {
 impl DynamicComponentsEntityExt for EntityCommands<'_> {
     fn insert_dynamic<T: Component>(&mut self, component_id: ComponentId, data: T) -> &mut Self {
         let entity = self.id();
-        self.commands().add(InsertDynamic {
+        self.commands().queue(InsertDynamic {
             entity,
             component_id,
             data,

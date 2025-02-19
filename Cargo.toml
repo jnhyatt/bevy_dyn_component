@@ -1,6 +1,6 @@
 [package]
 name = "bevy_dyn_component"
-version = "0.3.0"
+version = "0.4.0"
 authors = ["Josh Hyatt <joshua.n.hyatt@gmail.com>"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
@@ -9,13 +9,13 @@ repository = "https://github.com/jnhyatt/bevy_dyn_component"
 keywords = ["gamedev", "ecs", "bevy"]
 
 [dependencies]
-bevy_app = "0.14"
-bevy_ecs = "0.14"
-bevy_ptr = "0.14"
-bevy_utils = "0.14"
+bevy_app = "0.15"
+bevy_ecs = "0.15"
+bevy_ptr = "0.15"
+bevy_utils = "0.15"
 
 [dev-dependencies]
-bevy = { version = "0.14", default-features = false }
+bevy = { version = "0.15", default-features = false }
 
 [[example]]
 name = "hello_world"

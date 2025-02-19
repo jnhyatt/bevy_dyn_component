@@ -21,7 +21,7 @@ The component ID can also be used in the query builder API.
 
 ## Future of this crate
 
-Now that Bevy supports dynamic components, it's likely that this crate will soon be obsolete. In the longer term, many of the things you can do with this crate is easier with [relations](https://github.com/bevyengine/bevy/issues/3742).
+Now that Bevy supports dynamic components, it's likely that this crate will soon be obsolete. In the longer term, many of the things you can do with this crate are easier with [relations](https://github.com/bevyengine/bevy/issues/3742).
 
 ## Examples
 
@@ -37,6 +37,7 @@ Demonstrates a simple way of using dynamic components as janky fragmenting relat
 | ---- | ------------------ |
 | 0.13 | 0.1-0.2            |
 | 0.14 | 0.3                |
+| 0.15 | 0.4                |
 
 ## Contribution
 
